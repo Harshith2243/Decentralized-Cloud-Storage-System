@@ -1,0 +1,105 @@
+[
+  {
+    "type": "function",
+    "name": "uploadFile",
+    "stateMutability": "nonpayable",
+    "inputs": [
+      { "name": "cid", "type": "string" },
+      { "name": "fileName", "type": "string" },
+      { "name": "fileSize", "type": "uint256" }
+    ],
+    "outputs": [{ "name": "", "type": "uint256" }]
+  },
+  {
+    "type": "function",
+    "name": "shareFile",
+    "stateMutability": "nonpayable",
+    "inputs": [
+      { "name": "fileId", "type": "uint256" },
+      { "name": "grantee", "type": "address" }
+    ],
+    "outputs": []
+  },
+  {
+    "type": "function",
+    "name": "revokeAccess",
+    "stateMutability": "nonpayable",
+    "inputs": [
+      { "name": "fileId", "type": "uint256" },
+      { "name": "grantee", "type": "address" }
+    ],
+    "outputs": []
+  },
+  {
+    "type": "function",
+    "name": "hasAccess",
+    "stateMutability": "view",
+    "inputs": [
+      { "name": "fileId", "type": "uint256" },
+      { "name": "user", "type": "address" }
+    ],
+    "outputs": [{ "name": "", "type": "bool" }]
+  },
+  {
+    "type": "function",
+    "name": "getFile",
+    "stateMutability": "view",
+    "inputs": [{ "name": "fileId", "type": "uint256" }],
+    "outputs": [
+      { "name": "id", "type": "uint256" },
+      { "name": "owner", "type": "address" },
+      { "name": "cid", "type": "string" },
+      { "name": "fileName", "type": "string" },
+      { "name": "fileSize", "type": "uint256" },
+      { "name": "uploadedAt", "type": "uint256" }
+    ]
+  },
+  {
+    "type": "function",
+    "name": "getFilesByOwner",
+    "stateMutability": "view",
+    "inputs": [{ "name": "owner", "type": "address" }],
+    "outputs": [{ "name": "", "type": "uint256[]" }]
+  },
+  {
+    "type": "function",
+    "name": "totalFiles",
+    "stateMutability": "view",
+    "inputs": [],
+    "outputs": [{ "name": "", "type": "uint256" }]
+  },
+  {
+    "type": "event",
+    "name": "FileUploaded",
+    "anonymous": false,
+    "inputs": [
+      { "name": "fileId", "type": "uint256", "indexed": true },
+      { "name": "owner", "type": "address", "indexed": true },
+      { "name": "cid", "type": "string", "indexed": false },
+      { "name": "fileName", "type": "string", "indexed": false },
+      { "name": "timestamp", "type": "uint256", "indexed": false }
+    ]
+  },
+  {
+    "type": "event",
+    "name": "AccessShared",
+    "anonymous": false,
+    "inputs": [
+      { "name": "fileId", "type": "uint256", "indexed": true },
+      { "name": "owner", "type": "address", "indexed": true },
+      { "name": "grantedTo", "type": "address", "indexed": true },
+      { "name": "timestamp", "type": "uint256", "indexed": false }
+    ]
+  },
+  {
+    "type": "event",
+    "name": "AccessRevoked",
+    "anonymous": false,
+    "inputs": [
+      { "name": "fileId", "type": "uint256", "indexed": true },
+      { "name": "owner", "type": "address", "indexed": true },
+      { "name": "revokedFrom", "type": "address", "indexed": true },
+      { "name": "timestamp", "type": "uint256", "indexed": false }
+    ]
+  }
+]
