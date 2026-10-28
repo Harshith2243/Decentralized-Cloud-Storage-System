@@ -2,6 +2,7 @@ import "./App.css";
 import { useWallet } from "./context/WalletContext";
 import FileEncryption from "./components/FileEncryption";
 import MyFilesDashboard from "./components/MyFilesDashboard";
+import ProjectProgressDashboard from "./components/ProjectProgressDashboard";
 
 function shortenAddress(address) {
   if (!address) return "";
@@ -94,6 +95,8 @@ function App() {
         )}
 
         {account && <MyFilesDashboard contract={contract} account={account} isWrongNetwork={isWrongNetwork} />}
+
+        <ProjectProgressDashboard />
 
         <FileEncryption
           contract={contract}
