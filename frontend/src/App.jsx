@@ -1,6 +1,7 @@
 import "./App.css";
 import { useWallet } from "./context/WalletContext";
 import FileEncryption from "./components/FileEncryption";
+import MyFilesDashboard from "./components/MyFilesDashboard";
 
 function shortenAddress(address) {
   if (!address) return "";
