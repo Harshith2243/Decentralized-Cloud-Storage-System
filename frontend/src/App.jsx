@@ -93,6 +93,8 @@ function App() {
           </div>
         )}
 
+        {account && <MyFilesDashboard contract={contract} account={account} isWrongNetwork={isWrongNetwork} />}
+
         <FileEncryption
           contract={contract}
           account={account}
