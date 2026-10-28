@@ -8,6 +8,7 @@ import {
   formatBytes,
 } from "../utils/crypto";
 import IpfsStoragePanel from "./IpfsStoragePanel";
+import KeyBackupControls from "./KeyBackupControls";
 
 // Phase 3: local encryption/decryption test. Encryption and decryption themselves
 // never touch the network. Phase 4 adds <IpfsStoragePanel/>, which uploads only the
@@ -148,6 +149,13 @@ function FileEncryption({ storage, contract, account, isWrongNetwork, contractEr
       )}
 
       {selectionError && <div className="banner banner-error">{selectionError}</div>}
+
+      <KeyBackupControls
+        encryptionKey={key}
+        setEncryptionKey={setKey}
+        fileName={file?.name || encrypted?.metadata?.fileName}
+        disabled={working}
+      />
       {error && <div className="banner banner-error">{error}</div>}
 
       <div className="enc-actions">
